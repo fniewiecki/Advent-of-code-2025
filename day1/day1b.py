@@ -1,4 +1,3 @@
-import math
 
 
 def read_data(file_name,array):
