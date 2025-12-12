@@ -25,5 +25,8 @@ def day2a():
                 if part1 == part2:
                     idsum += number
     print(idsum)
-day2a()
+if __name__ == '__main__':
+    day2a()
+
+
 
