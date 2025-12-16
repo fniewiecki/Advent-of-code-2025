@@ -11,25 +11,29 @@ def day3a():
     pathtest = "day3test.txt"
     read_data(path, joltage)
     read_data(pathtest, joltagetest)
-    print(joltagetest)
-    for line in joltagetest:
+    numbers = ['9','8','7','6','5','4','3','2','1']
+    wholesum = 0
+    for line in joltage:
         firstNum = 0
-        numbers = sorted(set(line))
-        print(numbers)
-        i = len(numbers)-1
-        print(numbers[i])
         position = 0
-        for j in range(0,len(line) - 2):
-            if numbers[i] == line[j]:
-                position = j
-                firstNum = numbers[i]
-                break
-            i -= 1
         secondNum = 0
-        for x in range(position,len(line)-1):
-            if int(line[x]) > secondNum:
+        i = 0
+        while i < len(numbers):
+            for j in range(len(line)-1):
+                if line[j] == numbers[i]:
+                    firstNum = line[j]
+                    position = j
+                    break
+            if firstNum != 0:
+                break
+            i += 1
+        for x in range(position + 1, len(line)):
+            if secondNum < int(line[x]):
                 secondNum = int(line[x])
-        print(firstNum, secondNum)
+        wholesum += int(str(firstNum)+str(secondNum))
+
+    print(wholesum)
+
 
 
 
